@@ -1,2 +1,2 @@
-# potential-umbrella
+# SincerePath
 Swift Path utility
