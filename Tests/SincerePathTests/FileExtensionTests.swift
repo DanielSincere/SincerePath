@@ -11,6 +11,6 @@ class FileExtensionTests: XCTestCase {
 		XCTAssertEqual(SincerePath("/tmp/file.txt").filename, "file.txt")
 		XCTAssertEqual(SincerePath("/tmp/file.txt").filenameWithoutExtension, "file")
 		XCTAssertEqual(SincerePath("/tmp/file.txt").path(newExtension: "gif"), "/tmp/file.gif")
-		XCTAssertEqual(SincerePath("/tmp/file.txt").filename(newExtension: "gif"), "file.gif")
+		XCTAssertEqual(SincerePath("/tmp/file.txt").replacingExtension(with: "gif"), "file.gif")
 	}	
 }
