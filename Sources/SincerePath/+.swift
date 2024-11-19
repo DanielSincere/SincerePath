@@ -1,13 +1,11 @@
 import Foundation
 
 public func +(lhs: SincerePath, rhs: SincerePath) -> SincerePath {
-  // return innerConcat(lhs.path, rhs.path)
   lhs.path + rhs.path
 }
 
 public func +(lhs: SincerePath, rhs: String) -> SincerePath {
   lhs.path + rhs
-  // self.innerConcat(lhs.path, rhs)
 }
 
 private func +(lhs: String, rhs: String) -> SincerePath {

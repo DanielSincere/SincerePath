@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SincerePath: Codable, Equatable, Hashable {
+public struct SincerePath: Codable, Equatable {
   static let fileManager: FileManager = FileManager.default
   public let path: String
   public init(_ path: String = "") {
@@ -11,10 +11,6 @@ public struct SincerePath: Codable, Equatable, Hashable {
     
   public var string: String {
     path
-  }
-
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(path)
   }
 
   /// The file extension 
@@ -46,10 +42,10 @@ public struct SincerePath: Codable, Equatable, Hashable {
   }
 
   public func path(newExtension: String) -> SincerePath {
-    parent() + filename(newExtension: newExtension)
+    parent() + replacingExtension(with: newExtension)
   }
 
-  public func filename(newExtension: String) -> String {
-    filenameWithoutExtension + "." + newExtension
+  public func replacingExtension(with newExtension: String) -> String {
+    self.filenameWithoutExtension + "." + newExtension
   }
 }
