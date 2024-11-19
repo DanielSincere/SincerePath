@@ -3,7 +3,7 @@ import XCTest
 
 final class ComponentTests: XCTestCase {
   func testComponents() {
-    XCTAssertEqual(Path("/tmp/file").components, ["tmp", "file"])
-    XCTAssertEqual(Path("/tmp/file.txt").components.last, "file.txt")
+    XCTAssertEqual(SincerePath("/tmp/file").components, ["tmp", "file"])
+    XCTAssertEqual(SincerePath("/tmp/file.txt").components.last, "file.txt")
   }
 }

@@ -26,12 +26,10 @@ final class BasicTests: XCTestCase {
     XCTAssertEqual(actual, expected)
   }
 
-#if targetEnvironment(macCatalyst)
-  
-#else
+#if os(macOS) && !targetEnvironment(macCatalyst)
  func testHomePath() {
     let actual = SincerePath.home
-    let expected = Path(url: FileManager.default.homeDirectoryForCurrentUser)
+    let expected = SincerePath(url: FileManager.default.homeDirectoryForCurrentUser)
 
     XCTAssertEqual(actual, expected)
   }
