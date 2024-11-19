@@ -1,18 +1,18 @@
 import XCTest
-@testable import MPath
+@testable import SincerePath
 
 final class BasicTests: XCTestCase {
   func testExists() {
-    XCTAssertEqual(Path("/tmp").exists, true)
-    XCTAssertEqual(Path.current.exists, true)
+    XCTAssertEqual(SincerePath("/tmp").exists, true)
+    XCTAssertEqual(SincerePath.current.exists, true)
   }
 
   func testDefaultConstructor() {
-    XCTAssertEqual(Path().string, "")
+    XCTAssertEqual(SincerePath().string, "")
   }
 
   func testURLConversion() {
-    let path = Path("/bin/sh")
+    let path = SincerePath("/bin/sh")
     let url = URL(fileURLWithPath: "/bin/sh")
     XCTAssertEqual(path.url, url)
     XCTAssertEqual(path.url.absoluteString, "file:///bin/sh")
@@ -20,8 +20,8 @@ final class BasicTests: XCTestCase {
   }
 
   func testCurrentPath() {
-    let actual = Path.current
-    let expected = Path(FileManager.default.currentDirectoryPath)
+    let actual = SincerePath.current
+    let expected = SincerePath(FileManager.default.currentDirectoryPath)
 
     XCTAssertEqual(actual, expected)
   }
@@ -30,7 +30,7 @@ final class BasicTests: XCTestCase {
   
 #else
  func testHomePath() {
-    let actual = Path.home
+    let actual = SincerePath.home
     let expected = Path(url: FileManager.default.homeDirectoryForCurrentUser)
 
     XCTAssertEqual(actual, expected)
