@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
   name: "SincerePath",
   platforms: [
-    .macOS(.v11), .iOS(.v14)
+    .macOS(.v11), .iOS(.v13)
   ],
   products: [
     .library(name: "SincerePath", targets: ["SincerePath"]),
